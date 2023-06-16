@@ -16,7 +16,7 @@ const Navigation = () => {
     <Fragment>
       <div className="navigation">
         <Link className="logo-container" to="/">
-          <CrownLogo className="logo" />
+         EZYSALE
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
