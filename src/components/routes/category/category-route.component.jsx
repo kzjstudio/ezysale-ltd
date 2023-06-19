@@ -7,18 +7,28 @@ import ProductCard from "../../product-card/product-card.component";
 
 const Category = () => {
   const { category } = useParams();
-  const { CategoriesMap } = useContext(CategoriesContext);
-  const [products, setProducts] = useState(CategoriesMap[category]);
+  const { categoriesMap } = useContext(CategoriesContext);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    setProducts(CategoriesMap[category]);
-  }, [category, CategoriesMap]);
+    const categoryNeeded =[]
+    categoriesMap.map((items) =>{
+    categoryNeeded.push(items);
+    setProducts(categoryNeeded);
+    })
+   
+
+  }, [category, categoriesMap]);
+
   return (
     <div className="category=container">
       {products &&
         products.map((product) => {
+
+        console.log(product);
           return <ProductCard key={product.id} product={product} />;
         })}
+        <h1>on page</h1>
     </div>
   );
 };

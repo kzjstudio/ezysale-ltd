@@ -6,7 +6,6 @@ import "./categories-preview.styles.scss";
 
 const CategoriesPreview = () => {
   const { categoriesMap } = useContext(CategoriesContext);
-
   return (
     <div>
       {categoriesMap.map((item) => {
