@@ -1,0 +1,16 @@
+
+.product-page{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+}
+
+  
+    .title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      margin-top: 50px;
+      cursor: pointer;
+    }
+  
