@@ -10,24 +10,22 @@ const Category = () => {
   const { categoriesMap } = useContext(CategoriesContext);
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const categoryNeeded =[]
-    categoriesMap.map((items) =>{
-    categoryNeeded.push(items);
-    setProducts(categoryNeeded);
-    })
-   
 
+  
+
+  useEffect(() => {
+ console.log(categoriesMap);
+    setProducts(categoriesMap[category]);
+    
   }, [category, categoriesMap]);
 
   return (
     <div className="category=container">
-      {products &&
+      {/* {products &&
         products.map((product) => {
-
-        console.log(product);
+          
           return <ProductCard key={product.id} product={product} />;
-        })}
+        })} */}
         <h1>on page</h1>
     </div>
   );

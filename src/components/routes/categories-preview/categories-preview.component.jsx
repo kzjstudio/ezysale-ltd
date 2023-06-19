@@ -9,12 +9,11 @@ const CategoriesPreview = () => {
   return (
     <div>
       {categoriesMap.map((item) => {
-        const { items } = item;
         return (
-          <div key={item.id}>
-            <h2 className="title">{item.id.toUpperCase()}</h2>
+          <div key={item.title}>
+            <h2 className="title">{item.title}</h2>
             <div className="product-page">
-              {items.slice(0, 4).map((product) => (
+              {item.items.slice(0,4).map((product) => (
                 <ProductCard key={product.id} product={product}></ProductCard>
               ))}
             </div>

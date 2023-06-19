@@ -17,9 +17,7 @@ import {
   getDoc,
   setDoc,
   collection,
-  query,
   getDocs,
-  writeBatch,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -55,7 +53,8 @@ export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, "categories");
   getDocs(collectionRef).then((snapShot) => {
     snapShot.docs.forEach((doc) => {
-      categoryMap.push({ id: doc.id, ...doc.data() });
+      categoryMap.push( {...doc.data()} );
+      
     });
   });
 
