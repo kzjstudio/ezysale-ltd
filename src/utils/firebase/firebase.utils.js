@@ -51,35 +51,27 @@ export const signnWithGoogleRedirect = () =>
 export const db = getFirestore();
 
 export const getCategoriesAndDocuments = async () => {
-const collectionRef = collection(db, "categories");
-const q = query(collectionRef);
-const querySnapShot = await getDocs(q);
-const categoryMap = querySnapShot.docs.reduce((acc, docSnapshot) => {
-  const {title, items} = docSnapshot.data();
-  acc[title] = items;
-  return acc;
-}, {})
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+  const querySnapShot = await getDocs(q);
+  const categoryMap = querySnapShot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title?.toLowerCase()] = items;
+    return acc;
+  }, {});
 
-return categoryMap; 
+  return categoryMap;
 
-
-
-// querySnapShot.forEach((doc) => {
-//   console.log(doc.data());
-// })
-
-
-
-
-
-
+  // querySnapShot.forEach((doc) => {
+  //   console.log(doc.data());
+  // })
 
   // let categoryMap = [];
   // const collectionRef = collection(db, "categories");
   // getDocs(collectionRef).then((snapShot) => {
   //   snapShot.docs.forEach((doc) => {
   //     categoryMap.push( {...doc.data()} );
-      
+
   //   });
   // });
 

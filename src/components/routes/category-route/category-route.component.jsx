@@ -10,23 +10,16 @@ const Category = () => {
   const { categoriesMap } = useContext(CategoriesContext);
   const [products, setProducts] = useState([]);
 
-
-  
-
   useEffect(() => {
- console.log(categoriesMap);
     setProducts(categoriesMap[category]);
-    
   }, [category, categoriesMap]);
 
   return (
-    <div className="category=container">
-      {/* {products &&
+    <div className="category-container">
+      {products &&
         products.map((product) => {
-          
           return <ProductCard key={product.id} product={product} />;
-        })} */}
-        <h1>on page</h1>
+        })}
     </div>
   );
 };

@@ -1,39 +1,21 @@
-import { useContext } from "react";
-
+import { useContext, Fragment } from "react";
 import { CategoriesContext } from "../../../context/categories.context";
-import ProductCard from "../../product-card/product-card.component";
-import "./categories-preview.styles.scss";
+import "./categories.styles.scss";
+
+import CategoryPreview from "../category-preview/category-preview.component";
 
 const CategoriesPreview = () => {
   const { categoriesMap } = useContext(CategoriesContext);
+
   return (
-    <div className="category-preview-container">
-      <h2>
-        <span className="title">{title?.toUpperCase()}</span>
-      </h2>
-<div className="preview">
-  {
-    products.filter((_, idx) =>idx < 4 ).map((product) => 
-      <ProductCard key={product.id} product={product} />
-    )
-  }
-
-</div>
-
-
-      {/* {categoriesMap.map((item) => {
+    <>
+      {Object.keys(categoriesMap).map((title) => {
+        const products = categoriesMap[title];
         return (
-          <div key={item.title}>
-            <h2 className="title">{item.title}</h2>
-            <div className="product-page">
-              {item.items.slice(0,4).map((product) => (
-                <ProductCard key={product.id} product={product}></ProductCard>
-              ))}
-            </div>
-          </div>
+          <CategoryPreview key={title} title={title} products={products} />
         );
-      })} */}
-    </div>
+      })}
+    </>
   );
 };
 
