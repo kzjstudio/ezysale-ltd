@@ -18,6 +18,8 @@ import {
   setDoc,
   collection,
   getDocs,
+  query,
+  where,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -49,16 +51,39 @@ export const signnWithGoogleRedirect = () =>
 export const db = getFirestore();
 
 export const getCategoriesAndDocuments = async () => {
-  let categoryMap = [];
-  const collectionRef = collection(db, "categories");
-  getDocs(collectionRef).then((snapShot) => {
-    snapShot.docs.forEach((doc) => {
-      categoryMap.push( {...doc.data()} );
-      
-    });
-  });
+const collectionRef = collection(db, "categories");
+const q = query(collectionRef);
+const querySnapShot = await getDocs(q);
+const categoryMap = querySnapShot.docs.reduce((acc, docSnapshot) => {
+  const {title, items} = docSnapshot.data();
+  acc[title] = items;
+  return acc;
+}, {})
 
-  return categoryMap;
+return categoryMap; 
+
+
+
+// querySnapShot.forEach((doc) => {
+//   console.log(doc.data());
+// })
+
+
+
+
+
+
+
+  // let categoryMap = [];
+  // const collectionRef = collection(db, "categories");
+  // getDocs(collectionRef).then((snapShot) => {
+  //   snapShot.docs.forEach((doc) => {
+  //     categoryMap.push( {...doc.data()} );
+      
+  //   });
+  // });
+
+  // return categoryMap;
 };
 
 export const createUserDocument = async (
