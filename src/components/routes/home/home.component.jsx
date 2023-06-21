@@ -33,7 +33,7 @@ const Home = () => {
       imageUrl: "https://m.media-amazon.com/images/I/8193DNNjZFS.jpg",
     },
     {
-      id: "4",
+      id: "6",
       title: "Office supplies",
       imageUrl:
         "https://www.careeraddict.com/uploads/article/60910/workplace-cool-office-gadgets.png",
