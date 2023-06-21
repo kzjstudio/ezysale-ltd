@@ -1,7 +1,13 @@
+import {HomeScreenCategoriesContext} from "../../../context/home-page-categories-context"
+import { useContext } from "react";
 import Directory from "../../directory/directory.component";
 
 
 const Home = () => {
+
+  const {categoriescont} = useContext(HomeScreenCategoriesContext);
+  console.log(categoriescont);
+
   const categories = [
     {
       id: "1",
