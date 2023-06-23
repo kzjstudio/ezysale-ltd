@@ -48,7 +48,7 @@ export const signinWithGooglePopup = () =>
 export const signnWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
-export const db = getFirestore();
+export const db = getFirestore(firebaseApp);
 
 export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, "categories");
@@ -61,21 +61,6 @@ export const getCategoriesAndDocuments = async () => {
   }, {});
 
   return categoryMap;
-
-  // querySnapShot.forEach((doc) => {
-  //   console.log(doc.data());
-  // })
-
-  // let categoryMap = [];
-  // const collectionRef = collection(db, "categories");
-  // getDocs(collectionRef).then((snapShot) => {
-  //   snapShot.docs.forEach((doc) => {
-  //     categoryMap.push( {...doc.data()} );
-
-  //   });
-  // });
-
-  // return categoryMap;
 };
 
 export const createUserDocument = async (

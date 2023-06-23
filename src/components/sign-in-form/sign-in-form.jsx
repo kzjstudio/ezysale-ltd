@@ -35,10 +35,10 @@ const SignInForm = () => {
 
       resetFormFields();
     } catch (error) {
-      if (error.code == "auth/user-not-found") {
+      if (error.code === "auth/user-not-found") {
         alert("Either email or password is incorrect");
       }
-      if (error.code == "auth/wrong-password") {
+      if (error.code === "auth/wrong-password") {
         alert("Incorrect password for email");
       }
       console.log(error);
