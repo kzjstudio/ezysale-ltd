@@ -61,6 +61,30 @@ export const getCategoriesAndDocuments = async () => {
   }, {});
 
   return categoryMap;
+
+  // querySnapShot.forEach((doc) => {
+  //   console.log(doc.data());
+  // })
+
+  // let categoryMap = [];
+  // const collectionRef = collection(db, "categories");
+  // getDocs(collectionRef).then((snapShot) => {
+  //   snapShot.docs.forEach((doc) => {
+  //     categoryMap.push( {...doc.data()} );
+
+  //   });
+  // });
+
+  // return categoryMap;
+};
+
+export const getHomeScreencategories = async () => {
+  const collectionRef = collection(db, "home page categories");
+  const q = query(collectionRef);
+  const querySnapShot = await getDocs(q);
+  const categories = querySnapShot.docs.data();
+
+  return categories;
 };
 
 export const createUserDocument = async (
