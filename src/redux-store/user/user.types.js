@@ -1,0 +1,4 @@
+
+export const USER_ACTION_TYPES = {
+    SET_CURRRENT_USER: "SET_CURRRENT_USER",
+  };
