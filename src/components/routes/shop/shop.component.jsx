@@ -10,7 +10,7 @@ import Category from "../category-route/category-route.component";
 
 const Shop = () => {
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     const getCategories = async () => {
       const categoriesArray = await getCategoriesAndDocuments();

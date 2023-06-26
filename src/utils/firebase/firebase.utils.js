@@ -59,18 +59,13 @@ export const getCategoriesAndDocuments = async () => {
 };
 
 
-
-
-
-
 export const getHomeScreencategories = async () => {
   const collectionRef = collection(db, "home page categories");
   const q = query(collectionRef);
   const querySnapShot = await getDocs(q);
-  const categories = querySnapShot.docs.data();
-
-  return categories;
+  return querySnapShot.docs.map((docSnap) => docSnap.data())
 };
+
 
 export const createUserDocument = async (
   userAuth,
