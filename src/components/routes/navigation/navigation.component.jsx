@@ -1,21 +1,21 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 import CartIcon from "../../cart-icon/cart-icon.component";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import "./navigation.component.scss";
 import CartDropDown from "../../cart-dropdown/cart-dropdown";
 import { signOutUser } from "../../../utils/firebase/firebase.utils.js";
-import { CartContext } from "../../../context/cart.context";
-import { selectCurrentUser } from "../../../redux-store/user/user.selector";
+import { selectIsCartOpen } from "../../../redux-store/cart/cart.selector";
+import { setCurrentUser } from "../../../redux-store/user/user.reducer";
 
 const Navigation = () => {
-const currentUser = useSelector(selectCurrentUser)
-  const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(setCurrentUser);
+  const isCartOpen = useSelector(selectIsCartOpen);
   return (
     <Fragment>
       <div className="navigation">
         <Link className="logo-container" to="/">
-         EZYSALE
+          EZYSALE
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">

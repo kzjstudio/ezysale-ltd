@@ -1,5 +1,3 @@
-
-
 import LandingPage from "./landing-page";
 import { Routes, Route } from "react-router-dom";
 
@@ -9,8 +7,6 @@ const Home = () => {
       <Route index element={<LandingPage />} />
     </Routes>
   );
-
-
 };
 
 export default Home;
