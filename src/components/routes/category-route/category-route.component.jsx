@@ -1,5 +1,5 @@
 import "./category-route.styles.scss";
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect, Fragment } from "react";
 
 import { useSelector } from "react-redux/es/hooks/useSelector";
@@ -15,11 +15,9 @@ const Category = () => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
 
-  
   return (
     <Fragment>
       <h2 className="category-title">{category.toUpperCase()}</h2>
-
       <div className="category-container">
         {products &&
           products.map((product) => {

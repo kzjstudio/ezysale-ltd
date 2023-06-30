@@ -14,21 +14,21 @@ const Navigation = () => {
   return (
     <Fragment>
       <div className="navigation">
-        <Link className="logo-container" to="/">
+        <a className="logo-container" href="/">
           EZYSALE
-        </Link>
+        </a>
         <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
+          <a className="nav-link" href="/shop">
             SHOP
-          </Link>
+          </a>
           {currentUser ? (
             <span className="nav-link" onClick={signOutUser}>
               SIGN OUT
             </span>
           ) : (
-            <Link className="nav-link" to="/auth">
+            <a className="nav-link" to="/auth">
               SIGN IN
-            </Link>
+            </a>
           )}
           <CartIcon />
         </div>
